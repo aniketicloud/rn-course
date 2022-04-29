@@ -3,13 +3,21 @@ import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 
 export default function App() {
   const [enteredGoalText, setEnteredGoalText] = useState('')
+  const [courseGoals, setCourseGoals] = useState([])
 
   const goalInputHandler = (enteredText) => {
     setEnteredGoalText(enteredText)
   }
 
   const addGoalHandler = () => {
-    console.log(enteredGoalText);
+    // ? below is not a good practice to change state,
+    // ? as new state depends on previous state
+    // setCourseGoals([...courseGoals, enteredGoalText])
+
+    setCourseGoals((currentCourseGoal) => [
+      ...currentCourseGoal,
+      enteredGoalText
+    ])
   }
 
   return (
@@ -21,9 +29,7 @@ export default function App() {
       </View>
 
       <View style={styles.goalsContainer} >
-        <Text>
-          List of Goals . . Coming Soon . . .!
-        </Text>
+        {courseGoals.map((goal, index) => <Text key={index}>{goal}</Text>)}
       </View>
     </View>
   );
