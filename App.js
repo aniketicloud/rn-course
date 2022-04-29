@@ -4,24 +4,24 @@ import { FlexboxDeep } from './FlexboxDeep';
 
 export default function App() {
   return (
-    <View style={styles.appContainer}>
-      <View style={styles.inputContainer}>
-        <TextInput placeholder='Type Your goal' style={styles.textInput} />
-        <Button title='Add Goal' />
-      </View>
-      <View>
-        <Text>
-          List of Goals . . Coming Soon . . .!
-        </Text>
-      </View>
+    // <View style={styles.appContainer}>
+    //   <View style={styles.inputContainer}>
+    //     <TextInput placeholder='Type Your goal' style={styles.textInput} />
+    //     <Button title='Add Goal' />
+    //   </View>
+    //   <View>
+    //     <Text>
+    //       List of Goals . . Coming Soon . . .!
+    //     </Text>
+    //   </View>
+    // </View>
       <FlexboxDeep />
-    </View>
   );
 }
 
 const styles = StyleSheet.create({
   appContainer: {
-    padding: 50
+    // paddingTop: 50
   },
   inputContainer: {
     flexDirection: 'row',
