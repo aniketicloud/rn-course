@@ -27,7 +27,7 @@ export default function App() {
         ...currentCourseGoal,
         {
           text: enteredGoalText,
-          key: Math.random().toString(),
+          id: Math.random().toString(),
         },
       ];
     });
@@ -54,14 +54,8 @@ export default function App() {
               </View>
             );
           }}
+          keyExtractor={(itemData, index) => itemData.id}
         />
-        {/* <ScrollView alwaysBounceVertical={false}>
-          {courseGoals.map((goal, index) => (
-            <View key={index} style={styles.goalItem}>
-              <Text style={styles.goalText}>{goal}</Text>
-            </View>
-          ))}
-        </ScrollView> */}
       </View>
     </View>
   );
