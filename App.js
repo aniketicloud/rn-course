@@ -37,23 +37,18 @@ export default function App() {
           </View>
         ))}
       </View>
+
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   appContainer: {
-    // !! Delete this
-    backgroundColor: 'grey',
-
     flex: 1,
     paddingTop: 50,
     paddingHorizontal: 16,
   },
   inputContainer: {
-    // !! Delete this
-    backgroundColor: 'white',
-
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -70,10 +65,6 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   goalsContainer: {
-    // !! Delete this
-    backgroundColor: 'aqua',
-    marginBottom: 24,
-
     flex: 5,
   },
   goalItem: {
