@@ -10,15 +10,16 @@ export default function App() {
     // ? below is not a good practice to change state,
     // ? as new state depends on previous state
     // setCourseGoals([...courseGoals, enteredGoalText])
-
     setCourseGoals((currentCourseGoal) => {
-      return [
-        ...currentCourseGoal,
-        {
-          text: enteredGoalText,
-          id: Math.random().toString(),
-        },
-      ];
+      return enteredGoalText !== ""
+        ? [
+            ...currentCourseGoal,
+            {
+              text: enteredGoalText,
+              id: Math.random().toString(),
+            },
+          ]
+        : currentCourseGoal;
     });
   };
 
