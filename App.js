@@ -22,6 +22,16 @@ export default function App() {
     });
   };
 
+  const deleteGoalHandler = (id) => {
+    const courseGoalsCopy = [...courseGoals];
+    const itemToDeleteIndex = courseGoalsCopy.findIndex(
+      (goal) => id === goal.id
+    );
+    courseGoalsCopy.splice(itemToDeleteIndex, 1);
+    setCourseGoals(courseGoalsCopy);
+    console.log("Deleted: ", courseGoalsCopy);
+  };
+
   return (
     <View style={styles.appContainer}>
       <GoalInput onAddGoal={addGoalHandler} />
@@ -30,7 +40,13 @@ export default function App() {
         <FlatList
           data={courseGoals}
           renderItem={(itemData) => {
-            return <GoalItem text={itemData.item.text} />;
+            return (
+              <GoalItem
+                text={itemData.item.text}
+                id={itemData.item.id}
+                deleteGoal={deleteGoalHandler}
+              />
+            );
           }}
           keyExtractor={(itemData, index) => itemData.id}
         />
