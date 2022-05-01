@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { StyleSheet, View, Button, TextInput, FlatList } from "react-native";
+import { StyleSheet, View, Button, FlatList } from "react-native";
 import GoalInput from "./components/GoalInput";
 import GoalItem from "./components/GoalItem";
 
 export default function App() {
   const [courseGoals, setCourseGoals] = useState([]);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const addGoalHandler = (enteredGoalText) => {
     // ? below is not a good practice to change state,
@@ -29,9 +30,19 @@ export default function App() {
     });
   };
 
+  const startAddGoalHandler = () => {
+    setIsModalVisible(true);
+  };
+
   return (
     <View style={styles.appContainer}>
-      <GoalInput onAddGoal={addGoalHandler} />
+      <Button
+        title="Add New Goal"
+        color="#5e0acc"
+        onPress={startAddGoalHandler}
+      />
+
+      <GoalInput onAddGoal={addGoalHandler} visible={isModalVisible} />
 
       <View style={styles.goalsContainer}>
         <FlatList
